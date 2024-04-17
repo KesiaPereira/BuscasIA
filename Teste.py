@@ -43,3 +43,9 @@ class Teste:
 
     def get_mapa_romenia(self):
         return self.mapa_romenia
+
+    def custo(self, estado, acao, proximo_estado):
+        return self.mapa_romenia[estado][acao]
+
+    def transicao(self, estado, acao):
+        return acao

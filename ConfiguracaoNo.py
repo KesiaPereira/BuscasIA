@@ -1,5 +1,5 @@
-class Node:
-    def __init__(self, estado, pai, acao, custo):
+class ConfiguracaoNo:
+    def __init__(self, estado, pai=None, acao=None, custo=0):
         self.estado = estado
         self.pai = pai
         self.acao = acao
@@ -8,7 +8,7 @@ class Node:
     def no_filho(self, problema, acao):
         proximo_estado = problema.transicao(self.estado, acao)
         custo_filho = problema.custo(self.estado, acao, proximo_estado)
-        return Node(proximo_estado, self, acao, custo_filho)
+        return ConfiguracaoNo(proximo_estado, self, acao, custo_filho)
 
     def explorar(self, problema):
         nos = []
@@ -29,3 +29,6 @@ class Node:
         for node in caminho:
             solucao.append(node.estado)
         return solucao
+
+    def set_custo(self, custo):
+        self.custo = custo
